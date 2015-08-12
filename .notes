@@ -1,0 +1,2 @@
+Day 4 Lesson 1 Commit with Git
+git checkout -f == git checkout -- .
