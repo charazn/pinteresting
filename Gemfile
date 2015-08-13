@@ -19,4 +19,15 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', require: false
+  gem 'database_cleaner'
+  gem 'pry-rails'
+  gem 'dotenv-rails'
 end
+
+group :production do
+  gem 'unicorn-rails'
+  gem 'rails_12factor'
+end
+
