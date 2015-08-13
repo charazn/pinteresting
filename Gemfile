@@ -24,6 +24,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'guard-rspec', require: false
+  gem 'guard-livereload', '~> 2.4', require: false
 end
 
 group :production do
