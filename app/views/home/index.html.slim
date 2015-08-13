@@ -1,4 +1,6 @@
-.jumbotron
+.jumbotron.center
   h1 Welcome to my app!
-  | Click here to 
-  = link_to "Sign Up", "#", class: "btn btn-primary"
+  = link_to root_path do 
+    button type="button" class="btn btn-default" Log In
+  = link_to about_path do 
+    button type="button" class="btn btn-danger" About

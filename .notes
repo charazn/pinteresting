@@ -1,2 +1,25 @@
+Resources:
+The Command Line Crash Course
+http://cli.learncodethehardway.org/book/
+
+Markdown Syntax
+http://daringfireball.net/projects/markdown/syntax
+
+Flat UI Colors
+https://flatuicolors.com/
+  Good use of flat ui colors
+  https://usepanda.com/
+
+The world’s most advanced web editor
+https://pagecloud.com/
+
+Team Treehouse (Learn programming and design)
+https://teamtreehouse.com/
+
+Free Bootstrap Themes & Templates
+http://startbootstrap.com/
+
+==================================================
+
 Day 4 Lesson 1 Commit with Git
 git checkout -f == git checkout -- .
