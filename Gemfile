@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 gem 'rails', '4.2.3'
+gem 'pg'
 gem 'sqlite3'
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -17,4 +18,5 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.0'
 end
