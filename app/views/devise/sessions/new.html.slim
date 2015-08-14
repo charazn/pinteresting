@@ -1,21 +1,25 @@
-.jumbotron.center
-  h2 Log in
+.panel.panel-success
+  .panel-heading
+    h2 Log in
 
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :email
-      = f.email_field :email, autofocus: true
+  .panel-body
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: "form-control"
 
-    .field
-      = f.label :password
-      = f.password_field :password, autocomplete: "off"
+      .form-group
+        = f.label :password
+        = f.password_field :password, autocomplete: "off", class: "form-control"
 
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
+      - if devise_mapping.rememberable?
+        .form-group
+          .checkbox
+            = f.check_box :remember_me
+            = f.label :remember_me
 
-    .actions
-      = f.submit "Log in"
+      .actions
+        = f.submit "Log in", class: "btn btn-success"
 
-  = render "devise/shared/links"
+  .panel-footer
+    = render "devise/shared/links"
