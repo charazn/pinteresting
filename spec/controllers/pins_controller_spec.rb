@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe PinsController, type: :controller do
+  include Devise::TestHelpers
 
   let(:pin) { create(:pin) }
-  # let(:user) { create(:user) }
-  # before { sign_in(user) }
+  let(:user) { create(:user) }
+  before { sign_in(user) }
 
 
   describe "GET #index" do 
