@@ -19,7 +19,18 @@ https://teamtreehouse.com/
 Free Bootstrap Themes & Templates
 http://startbootstrap.com/
 
+DNSimple
+https://dnsimple.com/ (use link: https://dnsimple.com/o/one-month-rails for discount)
+
+
+
 ==================================================
 
 Day 4 Lesson 1 Commit with Git
 git checkout -f == git checkout -- .
+
+Day 14 Lesson 2 Setting up Devise
+application.html.erb
+<% flash.each do |name, msg| %>
+     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+<% end %>

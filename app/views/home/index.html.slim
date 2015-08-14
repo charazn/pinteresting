@@ -1,6 +1,8 @@
 .jumbotron.center
   h1 Welcome to my app!
-  = link_to root_path do 
-    button type="button" class="btn btn-default" Log In
-  = link_to about_path do 
-    button type="button" class="btn btn-danger" About
+
+  - unless user_signed_in?
+    = link_to new_user_session_path do 
+      button type="button" class="btn btn-default" Sign In
+    = link_to new_user_registration_path do 
+      button type="button" class="btn btn-danger" Sign Up
