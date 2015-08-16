@@ -29,5 +29,11 @@ module Pinteresting
       g.stylesheets false
       g.javascripts false
     end
+
+    # Devise instructions #4
+    # If you are deploying on Heroku with Rails 3.2 only, you may want to set:
+    # On config/application.rb forcing your application to not access the DB
+    # or load models when precompiling your assets.
+    config.assets.initialize_on_precompile = false
   end
 end

@@ -1,0 +1,11 @@
+.jumbotron
+  p#notice = notice
+
+  p
+    strong Description:
+    br
+    = @pin.description
+
+  = link_to 'Edit', edit_pin_path(@pin) 
+  '  |
+  = link_to 'Back', pins_path
