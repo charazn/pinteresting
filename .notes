@@ -128,4 +128,12 @@ app/views/pins/index.html.erb
 <%= pin.user.email if pin.user %>, show only if that pin has an associated user
 <%= pin.user.try(:email) %>, show all, but don't throw up exception if pin does not have associated user
 
+Day 24 Lesson 2 Image Upload with Paperclip
+class Pin < ActiveRecord::Base
+
+  has_attached_file :image, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
+  # instead of :default_url => "/images/:style/missing.png"
+
+end
+
 
