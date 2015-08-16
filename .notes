@@ -122,3 +122,10 @@ end
 Day 22 Lesson 1 Pins Users and Associations
 $ rails generate migration add_user_id_to_pins user_id:integer:index
 My own: $ rails g migration AddUserIdToPins user:references
+
+Day 23 Lesson 1 Authorization: Who can? Who can't?
+app/views/pins/index.html.erb
+<%= pin.user.email if pin.user %>, show only if that pin has an associated user
+<%= pin.user.try(:email) %>, show all, but don't throw up exception if pin does not have associated user
+
+
