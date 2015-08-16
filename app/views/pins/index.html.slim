@@ -4,7 +4,9 @@
   table
     thead
       tr
+        th Image
         th Description
+        th Email
         th
         th
         th
@@ -12,14 +14,14 @@
     tbody
       - @pins.each do |pin|
         tr
+          td = image_tag pin.image.url(:thumb)
           td = pin.description
           td = pin.user.email if pin.user 
           td = link_to 'Show', pin
-          - if pin.user == current_user && !pin.user.nil? # && user_signed_in?
+          - if pin.user == current_user && !pin.user.nil?
             td = link_to 'Edit', edit_pin_path(pin)
             td = link_to 'Destroy', pin, data: {:confirm => 'Are you sure?'}, :method => :delete
-
+        
   br
-
   - if user_signed_in?
     = link_to 'New Pin', new_pin_path
