@@ -4,5 +4,4 @@ FactoryGirl.define do
     password 'tinkerbox'
     password_confirmation 'tinkerbox'
   end
-
 end
