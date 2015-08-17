@@ -27,12 +27,13 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers', require: false
-  gem 'database_cleaner'
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'guard-rspec', require: false
   gem 'guard-livereload', '~> 2.4', require: false
+  gem 'shoulda-matchers', require: false
+  gem 'paperclip-matchers', require: false
+  gem 'database_cleaner'
 end
 
 group :production do

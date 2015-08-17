@@ -150,3 +150,21 @@ Pin.all.paginate(:page => params[:page], :per_page => 8)
 <div class="center">
    <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
+
+Day 30 Lesson 2 Adding validations
+# Creates an association to pins for a user
+let(:user) { create(:user, pins: [pin]) }
+
+# Alternative to pin factory
+http://stackoverflow.com/questions/24355501/using-factorygirls-attributes-for-with-paperclip-attachment
+FactoryGirl.define do
+  factory :pin do
+    # image Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/images/minimum.jpg", "image/jpg")
+    image { fixture_file_upload( File.join(Rails.root, 'spec', 'fixtures', 'images', 'minimum.jpg'), 'image/jpeg') }
+    # From 
+    # http://stackoverflow.com/questions/3294824/how-do-i-use-factory-girl-to-generate-a-paperclip-attachment
+    # avatar { File.new(Rails.root.join('app', 'assets', 'images', 'rails.png')) }
+    # avatar { File.new("#{Rails.root}/spec/support/fixtures/image.jpg") } 
+    # avatar { fixture_file_upload(Rails.root.join('spec', 'photos', 'test.png'), 'image/png') }
+  end
+end

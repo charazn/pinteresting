@@ -163,6 +163,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    paperclip-matchers (0.1.1)
     pg (0.18.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   kaminari
   masonry-rails
   paperclip (~> 4.3)
+  paperclip-matchers
   pg
   pry-rails
   rails (= 4.2.3)
