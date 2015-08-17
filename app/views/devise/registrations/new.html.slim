@@ -1,4 +1,4 @@
-.panel.panel-danger
+.panel.panel-default
   .panel-heading
     h2 Sign up
 
@@ -24,7 +24,7 @@
         = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
 
       .actions
-        = f.submit "Sign up", class: "btn btn-danger"
+        = f.submit "Sign up", class: "btn btn-default"
 
   .panel-footer
     = render "devise/shared/links"
