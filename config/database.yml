@@ -82,4 +82,4 @@ production:
   <<: *default
   database: pinteresting_production
   username: pinteresting
-  password: <%= ENV['TINKER-SKILLS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PINTERESTING_DATABASE_PASSWORD'] %>
