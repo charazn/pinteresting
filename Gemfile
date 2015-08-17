@@ -19,6 +19,7 @@ gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   gem 'byebug'
