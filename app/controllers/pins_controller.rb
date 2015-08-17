@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @pins = Pin.all
+    @pins = Pin.all.reverse_order
   end
 
   def show
