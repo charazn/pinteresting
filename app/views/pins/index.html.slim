@@ -1,27 +1,14 @@
-.jumbotron
-  h1 Listing pins
+.pins.transitions-enabled
+  - @pins.each do |pin|
+    .box.panel.panel-default
+      = link_to pin do
+        = image_tag pin.image.url(:medium)
+      .panel-body
+        p = pin.description
+        p = pin.user.email if pin.user 
+        - if pin.user == current_user && !pin.user.nil?
+          p 
+            = link_to 'Edit', edit_pin_path(pin)
+            '  | 
+            = link_to 'Destroy', pin, data: {:confirm => 'Are you sure?'}, :method => :delete
 
-  table
-    thead
-      tr
-        th Image
-        th Description
-        th Email
-        th
-        th
-        th
-
-    tbody
-      - @pins.each do |pin|
-        tr
-          td = image_tag pin.image.url(:thumb)
-          td = pin.description
-          td = pin.user.email if pin.user 
-          td = link_to 'Show', pin
-          - if pin.user == current_user && !pin.user.nil?
-            td = link_to 'Edit', edit_pin_path(pin)
-            td = link_to 'Destroy', pin, data: {:confirm => 'Are you sure?'}, :method => :delete
-        
-  br
-  - if user_signed_in?
-    = link_to 'New Pin', new_pin_path

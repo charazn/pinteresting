@@ -136,4 +136,10 @@ class Pin < ActiveRecord::Base
 
 end
 
+Day 26 Lesson 1 Styling our app with jQuery Masonry
+http://masonry.desandro.com/
+https://github.com/kristianmandrup/masonry-rails
+https://github.com/kossnocorp/jquery.turbolinks
+Faster page loads with Turbolinks
+https://coderwall.com/p/ypzfdw/faster-page-loads-with-turbolinks
 
