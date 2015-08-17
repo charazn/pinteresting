@@ -1,7 +1,7 @@
 .pins {
   margin: 0 auto;
-  p {
-    margin-bottom: 0;
+  .box img {
+    width: 100%;
   }
   .panel-body {
     padding-left: 2px;
@@ -9,11 +9,18 @@
   }
 }
 
-.box {
-  margin: 5px;
-  width: 260px;
+.pins_index {
+  .box {
+    margin: 5px;
+    width: 260px;
+  }
 }
 
-.box img {
-  width: 100%;
+.pins_show {
+  .box {
+    margin: 5px;
+    width: 800px;
+    font-size: 14px;
+  }
 }
+

@@ -1,13 +1,11 @@
-.jumbotron
-  p#notice = notice
+p#notice = notice
 
-  = image_tag @pin.image.url(:large)
-  p
-    strong Description:
-    br
-    = @pin.description
-
-  - if @pin.user == current_user && user_signed_in?
-    = link_to 'Edit', edit_pin_path(@pin) 
-    '  |
-  = link_to 'Back', pins_path
+.pins.centered
+  .box.panel.panel-default
+    = image_tag @pin.image.url(:large)
+    .panel-body
+      div = @pin.description
+      - if @pin.user == current_user && user_signed_in?
+        = link_to 'Edit', edit_pin_path(@pin) 
+        '  |
+      = link_to 'Back', pins_path
