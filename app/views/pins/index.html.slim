@@ -8,7 +8,9 @@
         div = pin.user.email if pin.user 
         - if pin.user == current_user && !pin.user.nil?
           div 
-            = link_to 'Edit', edit_pin_path(pin)
-            '  | 
-            = link_to 'Destroy', pin, data: {:confirm => 'Are you sure?'}, :method => :delete
-
+            = link_to edit_pin_path(pin) do
+              span class="glyphicon glyphicon-edit" aria-hidden="true"
+              |  Edit  
+            = link_to pin, data: {:confirm => 'Are you sure?'}, :method => :delete do
+              span class="glyphicon glyphicon-trash" aria-hidden="true"
+              |  Delete

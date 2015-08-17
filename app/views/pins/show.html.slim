@@ -6,6 +6,8 @@ p#notice = notice
     .panel-body
       div = @pin.description
       - if @pin.user == current_user && user_signed_in?
-        = link_to 'Edit', edit_pin_path(@pin) 
+        = link_to edit_pin_path(@pin) do
+          span class="glyphicon glyphicon-edit" aria-hidden="true"
+          |  Edit
         '  |
       = link_to 'Back', pins_path
