@@ -143,3 +143,10 @@ https://github.com/kossnocorp/jquery.turbolinks
 Faster page loads with Turbolinks
 https://coderwall.com/p/ypzfdw/faster-page-loads-with-turbolinks
 
+Day 29 Lesson 2 Pagination with will_paginate and will_paginate-bootstrap
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+Pin.all.paginate(:page => params[:page], :per_page => 8)
+<div class="center">
+   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>

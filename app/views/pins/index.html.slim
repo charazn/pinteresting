@@ -14,3 +14,4 @@
             = link_to pin, data: {:confirm => 'Are you sure?'}, :method => :delete do
               span class="glyphicon glyphicon-trash" aria-hidden="true"
               |  Delete
+.center = paginate @pins

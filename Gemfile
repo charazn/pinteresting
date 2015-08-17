@@ -18,6 +18,7 @@ gem 'devise'
 gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
