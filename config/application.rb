@@ -26,8 +26,10 @@ module Pinteresting
     # Configure default generators
     config.generators do |g|
       g.helper false
-      g.stylesheets false
-      g.javascripts false
+      # g.stylesheets false
+      # g.javascripts false
+      g.assets false
+      g.view_specs false
     end
 
     # Devise instructions #4
