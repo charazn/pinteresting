@@ -13,4 +13,24 @@ p#notice = notice
           span class="glyphicon glyphicon-edit" aria-hidden="true"
           |  Edit
         '  |
-      = link_to 'Back', pins_path
+      = link_to new_pin_comment_path(@pin) do
+        span class="glyphicon glyphicon-comment" aria-hidden="true"
+        |  Make a new comment
+
+  .box.panel.panel-default
+    .panel-heading 
+      h1 Comments
+    .panel-body
+      - @pin.comments.reverse_order.each do |comment|
+        .row
+          .col-xs-1
+            p = comment.commenter.username
+          .col-xs-8
+            p = comment.body
+          .col-xs-1
+            - if current_user && comment.commenter == current_user
+              = link_to edit_pin_comment_path(@pin, comment) do
+                span class="glyphicon glyphicon-edit" aria-hidden="true"
+                |  Edit
+          .col-xs-2
+            = time_ago_in_words(comment.updated_at) + " ago"

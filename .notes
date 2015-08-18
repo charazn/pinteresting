@@ -168,3 +168,10 @@ FactoryGirl.define do
     # avatar { fixture_file_upload(Rails.root.join('spec', 'photos', 'test.png'), 'image/png') }
   end
 end
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SElF-ENCHANCEMENTS
+
+- Show username on navbar after login
+- Add Comment model polymorphic true, on pins and users
