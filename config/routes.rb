@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
   
-  root 'home#index'
+  root 'pins#index'
+  get '/index' => 'home#index'
   get '/about' => 'home#about'
+
   devise_for :users
-  resources :pins
+  
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
+  
+  resources :pins, :concerns => :paginatable do
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
 
 end

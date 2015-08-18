@@ -1,4 +1,4 @@
-.panel.panel-danger
+.panel.panel-default
   .panel-heading
     h2 Sign up
 
@@ -7,24 +7,28 @@
       = devise_error_messages!
 
       .form-group
+        = f.label :username, "Name"
+        = f.text_field :username, autofocus: true, class: "form-control", placeholder: "Enter your name"
+
+      .form-group
         = f.label :email
-        = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter a valid email"
+        = f.email_field :email, class: "form-control", placeholder: "Enter a valid email"
 
       .form-group
         = f.label :password 
         - if @minimum_password_length 
-        em  
-          |  (minimum 
-          = @minimum_password_length
-          |  characters)
+          em  
+            |  (minimum 
+            = @minimum_password_length
+            |  characters)
         = f.password_field :password, autocomplete: "off", class: "form-control"
 
-      .form-group
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+      / .form-group
+      /   = f.label :password_confirmation
+      /   = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
 
       .actions
-        = f.submit "Sign up", class: "btn btn-danger"
+        = f.submit "Sign up", class: "btn btn-default"
 
   .panel-footer
     = render "devise/shared/links"

@@ -1,0 +1,7 @@
+.jumbotron
+  h1 Edit comment for #{image_tag @pin.image.url(:medium)}
+
+  == render 'comment_form'
+  br
+  = link_to 'Back', pins_path
+

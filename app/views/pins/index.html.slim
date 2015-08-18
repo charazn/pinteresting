@@ -1,27 +1,34 @@
-.jumbotron
-  h1 Listing pins
+.pins.transitions-enabled
+  - @pins.each do |pin|
+    .box.panel.panel-default
+      = link_to pin do
+        = image_tag pin.image.url(:medium)
+      .panel-body
+        .caption = pin.description
+        div
+          | by 
+          = pin.user.username if pin.user 
+        - if pin.user == current_user && !pin.user.nil?
+          div 
+            = link_to edit_pin_path(pin) do
+              span class="glyphicon glyphicon-edit" aria-hidden="true"
+              |  Edit  
+            = link_to pin, data: {:confirm => 'Are you sure?'}, :method => :delete do
+              span class="glyphicon glyphicon-trash" aria-hidden="true"
+              |  Delete
+        - if pin.comments.any?
+          br
+          .recent-comments Recent comments
+          div
+            - pin.comments.limit(3).reverse_order.each do |comment|
+              .row
+                .col-xs-3
+                  = comment.commenter.username
+                .col-xs-9
+                  = truncate(comment.body, length: 30, separator: ' ')
 
-  table
-    thead
-      tr
-        th Image
-        th Description
-        th Email
-        th
-        th
-        th
+.center = paginate @pins, :theme => 'twitter-bootstrap-3'
 
-    tbody
-      - @pins.each do |pin|
-        tr
-          td = image_tag pin.image.url(:thumb)
-          td = pin.description
-          td = pin.user.email if pin.user 
-          td = link_to 'Show', pin
-          - if pin.user == current_user && !pin.user.nil?
-            td = link_to 'Edit', edit_pin_path(pin)
-            td = link_to 'Destroy', pin, data: {:confirm => 'Are you sure?'}, :method => :delete
-        
-  br
-  - if user_signed_in?
-    = link_to 'New Pin', new_pin_path
+
+
+

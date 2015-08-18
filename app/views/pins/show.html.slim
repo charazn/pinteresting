@@ -1,13 +1,37 @@
-.jumbotron
-  p#notice = notice
+p#notice = notice
 
-  = image_tag @pin.image.url(:large)
-  p
-    strong Description:
-    br
-    = @pin.description
+.pins.centered
+  .box.panel.panel-default
+    = image_tag @pin.image.url(:large)
+    .panel-body
+      div = @pin.description
+      div 
+        | by 
+        = @pin.user.username if @pin.user 
+      - if @pin.user == current_user && user_signed_in?
+        = link_to edit_pin_path(@pin) do
+          span class="glyphicon glyphicon-edit" aria-hidden="true"
+          |  Edit
+        '  |
+      = link_to new_pin_comment_path(@pin) do
+        span class="glyphicon glyphicon-comment" aria-hidden="true"
+        |  Make a new comment
 
-  - if @pin.user == current_user && user_signed_in?
-    = link_to 'Edit', edit_pin_path(@pin) 
-    '  |
-  = link_to 'Back', pins_path
+  - if @pin.comments.any?
+    .box.panel.panel-default
+      .panel-heading 
+        h1 Comments
+      .panel-body
+        - @pin.comments.reverse_order.each do |comment|
+          .row
+            .col-xs-1
+              = comment.commenter.username
+            .col-xs-8
+              = comment.body
+            .col-xs-1
+              - if current_user && comment.commenter == current_user
+                = link_to edit_pin_comment_path(@pin, comment) do
+                  span class="glyphicon glyphicon-edit" aria-hidden="true"
+                  |  Edit
+            .col-xs-2
+              = time_ago_in_words(comment.updated_at) + " ago"
