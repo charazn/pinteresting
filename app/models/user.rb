@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
 
+  has_many :comments_received, :as => :commentable, :class_name => "Comment"
+  has_many :comments_made, :class_name => "Comment", :foreign_key => :commenter_id
+
 end
