@@ -3,6 +3,9 @@
   .box img {
     width: 100%;
   }
+  .caption {
+    font-weight: 500;
+  }
   .panel-body {
     padding-left: 2px;
     padding-top: 5px;
@@ -18,13 +21,10 @@
       font-weight: 400;
       text-decoration: underline;
     }
-    .caption {
-      font-weight: 500;
-    }
   }
 }
 
-.pins_show {
+.pins_show, .pins_new, .pins_edit, .comments_new, .comments_edit {
   .box {
     margin: 5px;
     width: 960px;
@@ -32,3 +32,9 @@
   }
 }
 
+.comments_new, .comments_edit {
+  .box img {
+    width: 25%;
+    display: inline-block;
+  }
+}

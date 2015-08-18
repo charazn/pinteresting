@@ -1,7 +1,12 @@
-.jumbotron
-  h1 Edit comment for #{image_tag @pin.image.url(:medium)}
+.pins.centered
+  .box.panel.panel-default
+    .panel-heading
+      h1 Edit comment for #{image_tag @pin.image.url(:medium)}
 
-  == render 'comment_form'
-  br
-  = link_to 'Back', pins_path
+    .panel-body
+      = render 'comment_form'
 
+    .panel-footer
+      = link_to 'Back', @pin
+      '  |
+      = link_to 'Home', pins_path  

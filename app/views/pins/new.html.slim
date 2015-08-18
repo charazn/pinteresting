@@ -1,6 +1,10 @@
-.jumbotron
-  h1 New pin
+.pins.centered
+  .box.panel.panel-primary
+    .panel-heading
+      h1 New pin
 
-  = render 'pin_form'
-  br
-  = link_to 'Back', pins_path
+    .panel-body
+      = render 'pin_form'
+    
+    .panel-footer
+      = link_to 'Back', pins_path
