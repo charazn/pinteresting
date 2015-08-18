@@ -24,9 +24,9 @@ p#notice = notice
       - @pin.comments.reverse_order.each do |comment|
         .row
           .col-xs-1
-            p = comment.commenter.username
+            = comment.commenter.username
           .col-xs-8
-            p = comment.body
+            = comment.body
           .col-xs-1
             - if current_user && comment.commenter == current_user
               = link_to edit_pin_comment_path(@pin, comment) do

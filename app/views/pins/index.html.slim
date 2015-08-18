@@ -4,7 +4,7 @@
       = link_to pin do
         = image_tag pin.image.url(:medium)
       .panel-body
-        div = pin.description
+        .caption = pin.description
         div
           | by 
           = pin.user.username if pin.user 
@@ -16,4 +16,19 @@
             = link_to pin, data: {:confirm => 'Are you sure?'}, :method => :delete do
               span class="glyphicon glyphicon-trash" aria-hidden="true"
               |  Delete
+        - if pin.comments.any?
+          br
+          .recent-comments Recent comments
+          div
+            - pin.comments.limit(3).reverse_order.each do |comment|
+              .row
+                .col-xs-3
+                  = comment.commenter.username
+                .col-xs-9
+                  = truncate(comment.body, length: 30, separator: ' ')
+
 .center = paginate @pins, :theme => 'twitter-bootstrap-3'
+
+
+
+
