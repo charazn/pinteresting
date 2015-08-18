@@ -174,4 +174,23 @@ end
 SElF-ENCHANCEMENTS
 
 - Show username on navbar after login
-- Add Comment model polymorphic true, on pins and users
+- Add commenting on pins and users
+
+Social Media Colours – Hex and RGB Colours of the Web
+http://designpieces.com/2012/12/social-media-colours-hex-and-rgb/
+
+Initial navbar color used #2c3e50
+Tinkerbox blue #0f4c8d
+Facebook blue #3b5998
+LinkedIn light blue #007bb6
+Twitter light blue #00aced
+Instagra flat blue #517fa4
+Tumblr dark flat blue #32506d
+
+To-do 2015 Aug 18
+- Remove double error message on application.html and Rails form
+- Use SimpleForm
+- Allow user to upload profile photo
+- Use Sorcery
+- Use MailCatcher and SendGrid
+- Use Refile
