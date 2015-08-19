@@ -1,9 +1,12 @@
-.jumbotron
-  h1 Edit pin
+.pins.centered
+  .box.panel.panel-primary
+    .panel-heading
+      h1 Edit pin
 
-  == render 'pin_form'
-  br
-  = link_to 'Show', @pin
-  '  |
-  = link_to 'Back', pins_path
-
+    .panel-body
+      = render 'pin_form'
+    
+    .panel-footer
+      = link_to 'Back', @pin
+      '  |
+      = link_to 'Home', pins_path
