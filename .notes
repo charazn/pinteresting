@@ -61,7 +61,14 @@ https://github.com/fastestforward/heroku_san
   rake heroku:stage:all             # Select all Heroku apps for later command
 
 
+(Rails) Sanitization
+The TextHelper module provides a set of methods for filtering, formatting and transforming strings, which can reduce the amount of inline Ruby code in your views. These helper methods extend Action View making them callable within your template files.
+Most text helpers by default sanitize the given content, but do not escape it. This means HTML tags will appear in the page but all malicious code will be removed. Let's look at some examples using the simple_format method:
+http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html
+
 ==================================================
+
+# OneMonthRails - Pinteresting
 
 Day 4 Lesson 1 Commit with Git
 git checkout -f == git checkout -- .
@@ -197,3 +204,130 @@ To-do 2015 Aug 18
 
 # Learning Resources
 http://iwanttolearnruby.com/
+
+git diff compares current with staging
+git diff HEAD current with commited
+
+# Set up different remotes on Heroku
+https://devcenter.heroku.com/articles/multiple-environments
+
+Heroku ssh-kegen
+Heroku keys:add (add the generated ssh keys above to Heroku)
+Keys stored in $ /.ssh
+
+
+##################################################
+
+
+# Eduonix Learn Ruby on Rails from Scratch, by Brad Traversy
+# Chapter 24 Create and Update Part 1
+=f.select :category_id, Category.all.collect { |category| category.name, category.id }, { include_blank: "Select one" }
+
+- flash.each do |flash_type, message|
+  = flash_type: value
+
+# Chapter 25
+Show routes in development in browser - http://localhost:3000/rails/info/routes
+
+# Chapter 27
+<% if @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.body %>
+<% end.empty? %>
+  <p>There are no posts in this category</p>
+<% end %>
+
+# Chapter 29
+rails g active_admin:resource Category
+
+ActiveAdmin::Dashboards.build do
+  section "Recent Posts", :priority => 1 do
+    table_for Post.order("id desc").limit(15) do
+      column :id
+      column "Post Title", :title do |post|
+        link_to post.title, [:admin, post]
+      end
+      column :category, :sortable => :category
+      column :created_at
+    end
+    strong = link_to "All Posts", :admin_posts
+  end
+end
+
+ActiveAdmin.register Post do
+  menu :label => "Blog Posts"
+  index do
+    column :tile
+    column "Author", :admin_user
+    column :category
+    column :created_at
+    default_actions
+  end
+end
+
+# Chapter 33
+# Can just define a global method using helper_method in application_controller.rb
+class ApplicationController < ActionController::Base
+  helper_method :all_categories
+
+  def all_categories
+    @categories = Category.all
+  end
+end
+
+# Chapter 34
+gem 'meta_search' (not maintained, see Ransack)
+gem 'ransack'
+https://github.com/activerecord-hackery/ransack
+gem 'squeel' (for simplifying Rails Arel statements)
+https://github.com/activerecord-hackery/squeel
+
+application_controller.rb
+before_action :site_search
+
+def site_search
+  @search = Post.search(params[:search])
+  @search_posts = @search.all
+end
+
+<div id="search">
+  <%= form_for @search do |f| %>
+    <%= f.text_field :title_or_body_contains %>
+    <%= f.submit "Search" %> 
+  <% end %>
+</div>
+
+
+# 12 IN 12 CHALLENGE by Mackenzie Child, first post 2014 September
+# I challenged myself to truly learn Ruby on Rails by building 12 web apps in 12 weeks. Each week I recorded a screencast to show you how I built each app.
+https://mackenziechild.me/12-in-12/
+
+# gem 'acts_as_votable'
+https://github.com/ryanto/acts_as_votable
+
+resources :links do
+  member do 
+    put 'like', to: 'links#upvote'
+    put 'disklike', to: 'links#downvote'
+  end
+end
+
+# links_controller.rb
+def upvote
+  @link = Link.find(params[:id])
+  @link.upvote_by(current_user)
+  redirect_to :back
+end
+
+# links#index view
+.btn-group
+  = link_to "Visit Link", link_path, class: "btn btn-sm btn-default"
+  = link_to like_link_path(link), method: :put, class: "btn btn-sm btn-default" do
+    span class="glyphicon glyphicon-chevron-up"
+    Upvote
+    = link.get_upvotes.size
+  = link_to dislike_link_path(link), method: :put, class: "btn btn-sm btn-default" do
+    span class="glyphicon glyphicon-chevron-down"
+    Downvote
+    = link.get_downvotes.size
+
