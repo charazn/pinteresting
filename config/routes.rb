@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/index' => 'home#index'
   get '/about' => 'home#about'
 
-  devise_for :users
+  # devise_for :users
   
   concern :paginatable do
     get '(page/:page)', :action => :index, :on => :collection, :as => ''
