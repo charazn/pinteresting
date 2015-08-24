@@ -9,15 +9,15 @@ nav class="navbar navbar-default"
       = link_to "My Cute Friends", root_path, class: "navbar-brand"
 
     div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
-      ul class="nav navbar-nav"
-        - if user_signed_in?
+      - if logged_in?
+        ul class="nav navbar-nav"
           li = link_to new_pin_path do
             span class="glyphicon glyphicon-plus" aria-hidden="true" 
             |  New Pin
-      ul class="nav navbar-nav navbar-right"
-        - if user_signed_in?
-          li = link_to current_user.username, edit_user_registration_path
-          li = link_to "Log Out", destroy_user_session_path, method: :delete
-        - else
-          li = link_to "Log In", new_user_session_path
-          li = link_to "Sign Up", new_user_registration_path
+        ul class="nav navbar-nav navbar-right"
+          li = link_to current_user.username, edit_user_path(current_user.id)
+          li = link_to "Log Out", :logout, method: :post
+      - else
+        ul class="nav navbar-nav navbar-right"
+          li = link_to "Log In", :login
+          li = link_to "Sign Up", new_user_path

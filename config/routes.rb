@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   
-  resources :users
   root 'pins#index'
+
   get '/index' => 'home#index'
   get '/about' => 'home#about'
+
+  resources :user_sessions, only: :create
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  resources :users
 
   # devise_for :users
   
