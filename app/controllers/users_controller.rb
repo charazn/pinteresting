@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # before_action :set_pins, only: [:create, :destroy]
 
   def index
     @users = User.all
@@ -20,6 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      auto_login @user
       redirect_to pins_path, notice: 'Thank you for signing up.'
     else
       render :new
@@ -44,12 +44,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # def set_pins
-    #   @pins = Pin.order('updated_at DESC')
-    # end
-
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
 end

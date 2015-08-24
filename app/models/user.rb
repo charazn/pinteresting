@@ -6,14 +6,23 @@ class User < ActiveRecord::Base
   #        :recoverable, :rememberable, :trackable, :validatable
   authenticates_with_sorcery!
 
-  has_many :pins
-
-  validates :username, presence: true
+  validates :username, :email, presence: true
   validates :email, uniqueness: true
 
-  validates :password, length: { minimum: 6 }, if: -> { new_record? || changes["password"] }
-  validates :password, confirmation: true, if: -> { new_record? || changes["password"] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes["password"] }
+  # FROM SORCERY
+  validates :password, length: { minimum: 6 }, if: -> { new_record? || changes["crypted_password"] }
+  validates :password, confirmation: true, if: -> { new_record? || changes["crypted_password"] }
+  validates :password_confirmation, presence: true, if: -> { new_record? || changes["crypted_password"] }
+  
+  # My Validations
+  # validates :password, on: :create, presence: true, confirmation: true, length: { minimum: 6 }#, if: ->{ new_record? }
+  # validates :password, on: :update, allow_blank: true, confirmation: true,  length: { minimum: 6 }#, if: ->{ changes["password"] }
+
+  # From StackOverflow
+  # validates :password, presence: true, length: { minimum: 6 }, if: :new_user?
+  # validates :password, presence: true, length: { minimum: 6 }, unless: :skip_password
+
+  has_many :pins
 
   has_many :comments_received, :as => :commentable, :class_name => "Comment"
   has_many :comments_made, :class_name => "Comment", :foreign_key => :commenter_id

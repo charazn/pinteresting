@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  include Devise::TestHelpers
+  # include Devise::TestHelpers
 
   let(:pin) { create(:pin) }
   let(:user) { create(:user, pins: [pin]) }

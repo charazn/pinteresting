@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to pins_path, notice: 'You have successfully logged out'
+    redirect_to root_path, notice: 'You have successfully logged out'
   end
 
 end
