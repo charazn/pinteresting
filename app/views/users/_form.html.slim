@@ -19,4 +19,5 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation, class: "form-control"
     
-  .actions = f.submit "Sign Up", class: "btn btn-default"
+  .actions 
+    = f.submit @user.new_record? ? "Sign Up" : "Edit Profile", class: "btn btn-default"
