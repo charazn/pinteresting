@@ -4,7 +4,7 @@ class Pin < ActiveRecord::Base
   
   has_many :comments, :as => :commentable
   
-  validates :description, presence: true
+  validates :caption, presence: true
   
   validates :image, :attachment_presence => true
   has_attached_file :image, :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"

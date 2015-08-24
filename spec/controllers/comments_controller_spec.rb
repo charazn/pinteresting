@@ -46,7 +46,7 @@ RSpec.describe CommentsController, type: :controller do
     before { patch :update, :pin_id => pin.id, :id => comment.id, :comment => params }
 
     context "with valid params" do
-      let(:params) { { body: "Description updated"} }
+      let(:params) { { body: "Comment updated"} }
 
       it { expect(assigns(:comment).body).to eq(params[:body]) }
       it { expect(assigns(:comment)).to be_valid }

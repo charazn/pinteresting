@@ -60,9 +60,9 @@ RSpec.describe PinsController, type: :controller do
     before { patch :update, :id => pin.id, :pin => params }
 
     context "with valid params" do
-      let(:params) { { description: "Description updated"} }
+      let(:params) { { caption: "Caption updated"} }
 
-      it { expect(assigns(:pin).description).to eq(params[:description]) }
+      it { expect(assigns(:pin).caption).to eq(params[:caption]) }
       it { expect(assigns(:pin)).to be_valid }
       it { expect(response).to redirect_to(pin) }
     end
