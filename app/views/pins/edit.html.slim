@@ -1,12 +1,11 @@
-.pins.centered
-  .box.panel.panel-primary
-    .panel-heading
-      h1 Edit pin
+.panel.panel-default
+  .panel-heading
+    h1 Edit pin
 
-    .panel-body
-      = render 'pin_form'
-    
-    .panel-footer
-      = link_to 'Back', @pin
-      '  |
-      = link_to 'Home', pins_path
+  .panel-body
+    = render 'pin_form'
+  
+  .panel-footer
+    = link_to 'Back', @pin
+    '  |
+    = link_to 'Home', pins_path
