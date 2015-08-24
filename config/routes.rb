@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :users
   root 'pins#index'
   get '/index' => 'home#index'
   get '/about' => 'home#about'
