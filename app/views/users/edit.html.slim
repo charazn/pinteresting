@@ -1,8 +1,9 @@
-h1 Editing user
+.panel.panel-primary
+  .panel-heading
+    h2 Edit Profile
 
-= render 'form'
+  .panel-body
+    = render 'form'
 
-= link_to 'Show', @user
-'|
-= link_to 'Back', users_path
-
+  .panel-footer
+    = link_to 'Back', :back

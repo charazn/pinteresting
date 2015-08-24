@@ -1,5 +1,6 @@
 class PinsController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show]
   before_action :set_pin, only: [:show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
