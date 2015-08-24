@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   
   resources :pins, :concerns => :paginatable do
+    put :archive, :on => :member
     resources :comments, only: [:new, :create, :edit, :update]
   end
 

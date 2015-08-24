@@ -2,10 +2,10 @@ class PinsController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
   skip_before_action :require_login, only: [:index, :show]
   before_action :set_pin, only: [:show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :archive, :destroy]
 
   def index
-    @pins = Pin.all.reverse_order.page(params[:page])
+    @pins = Pin.order('updated_at DESC').active.page(params[:page])
   end
 
   def show
@@ -35,10 +35,16 @@ class PinsController < ApplicationController
     end
   end
 
-  def destroy
-    @pin.destroy
-    redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+  def archive
+    # if @deal.try(:archived!)
+    @pin.archived!
+    redirect_to pins_path, notice: 'Pin was successfully deleted'
   end
+
+  # def destroy
+  #   @pin.destroy
+  #   redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+  # end
 
   private
 

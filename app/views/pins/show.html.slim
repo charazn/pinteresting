@@ -9,8 +9,10 @@
       - if @pin.user == current_user && logged_in?
         = link_to edit_pin_path(@pin) do
           span class="glyphicon glyphicon-edit" aria-hidden="true"
-          |  Edit
-        '  |
+          |  Edit | 
+        = link_to archive_pin_path(@pin), data: {:confirm => 'Are you sure?'}, :method => :put do
+          span class="glyphicon glyphicon-trash" aria-hidden="true"
+          |  Delete | 
       = link_to new_pin_comment_path(@pin) do
         span class="glyphicon glyphicon-comment" aria-hidden="true"
         span class="glyphicons glyphicons-quote" aria-hidden="true"

@@ -1,7 +1,7 @@
 .jumbotron.center
   h1 Welcome to my app!
 
-  - unless user_signed_in?
+  - unless logged_in?
     = link_to new_user_session_path do 
       button type="button" class="btn btn-success" Log In
     = link_to new_user_registration_path do 
