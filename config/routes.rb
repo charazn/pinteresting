@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   end
   
   resources :pins, :concerns => :paginatable do
-    put :archive, :on => :member
+    # NOT USING BECAUSE /pin/1/archive IS VISIBLE
+    put :archive, :on => :member, :path => :delete
+    # NOT put :archive, :on => :member, :as => :delete
+    # generates delete_pin_path, /pins/:id/archive, pins#archive
     resources :comments, only: [:new, :create, :edit, :update]
   end
 
