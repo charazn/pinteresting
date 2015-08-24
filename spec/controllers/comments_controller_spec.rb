@@ -6,7 +6,7 @@ RSpec.describe CommentsController, type: :controller do
   let(:pin) { create(:pin) }
   let(:user) { create(:user, pins: [pin]) }
   let(:comment) { create(:comment, commenter: user, commentable: pin) }
-  before { sign_in(user) }
+  before { login_user(user) }
 
 
   describe "GET #new" do 

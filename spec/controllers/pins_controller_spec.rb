@@ -5,7 +5,7 @@ RSpec.describe PinsController, type: :controller do
 
   let(:pin) { create(:pin) }
   let(:user) { create(:user, pins: [pin]) }
-  before { sign_in(user) }
+  before { login_user(user) }
 
 
   describe "GET #index" do 

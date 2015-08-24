@@ -34,6 +34,8 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Paperclip::Shoulda::Matchers
 
+  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
+
   # config.include Devise::TestHelpers, :type => :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
