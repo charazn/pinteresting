@@ -66,6 +66,14 @@ The TextHelper module provides a set of methods for filtering, formatting and tr
 Most text helpers by default sanitize the given content, but do not escape it. This means HTML tags will appear in the page but all malicious code will be removed. Let's look at some examples using the simple_format method:
 http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html
 
+Authentication with Sorcery
+http://www.sitepoint.com/magical-authentication-sorcery/
+
+Thoughtbot Shoulda Matchers
+https://github.com/thoughtbot/shoulda-matchers
+http://matchers.shoulda.io/docs/v2.8.0/Shoulda/Matchers/ActiveModel.html#validate_presence_of-instance_method
+http://www.rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveRecord#define_enum_for-instance_method
+
 ==================================================
 
 # OneMonthRails - Pinteresting
