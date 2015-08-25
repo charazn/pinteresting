@@ -35,6 +35,8 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'paperclip-matchers', require: false
   gem 'database_cleaner'
+  gem 'awesome_print'
+  gem 'table_print'
 end
 
 group :production do
