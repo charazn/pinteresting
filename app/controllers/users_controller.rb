@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def archive
     @user.archived!
     logout
-    redirect_to root_path, notice: 'You have successfully deleted your account'
+    redirect_to root_path, notice: 'You have successfully cancelled your account'
   end
 
   # def destroy
