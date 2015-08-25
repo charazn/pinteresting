@@ -1,8 +1,14 @@
 nav.navbar.navbar-default {
   background-color: #0f4c8d;
   ul.nav.navbar-nav, .navbar-header {
+    display: table;
     a {
       color: white;
+    }
+    img {
+      margin-top: 10px;
+      margin-right: 10px;
+      border-radius: 50%;
     }
   }
 }

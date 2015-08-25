@@ -15,6 +15,7 @@ nav class="navbar navbar-default"
             span class="glyphicon glyphicon-plus" aria-hidden="true" 
             |  New Pin
         ul class="nav navbar-nav navbar-right"
+          li = image_tag current_user.image.url(:profile_navbar) if current_user.image?
           li = link_to current_user.username, edit_user_path(current_user.id)
           li = link_to "Log Out", :logout, method: :post
       - else

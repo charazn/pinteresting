@@ -1,4 +1,4 @@
-= form_for @user do |f|
+= form_for @user, :html => { :multipart => true } do |f|
   - if @user.errors.any?
     #error_explanation
       h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -6,6 +6,9 @@
         - @user.errors.full_messages.each do |message|
           li = message
 
+  .form-group
+    = f.label :image, "Add a profile photo"
+    = f.file_field :image
   .form-group
     = f.label :username, "Name"
     = f.text_field :username, autofocus: true, class: "form-control", placeholder: "Enter your name"
