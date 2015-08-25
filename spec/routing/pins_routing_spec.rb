@@ -8,6 +8,6 @@ RSpec.describe PinsController, type: :routing do
   it { expect(:post => "/pins").to route_to(:controller => "pins", :action => "create") }
   it { expect(:get => "/pins/1/edit").to route_to(:controller => "pins", :action => "edit", :id => "1") }
   it { expect(:patch => "/pins/1").to route_to(:controller => "pins", :action => "update", :id => "1") }
-  it { expect(:delete => "/pins/1").to route_to(:controller => "pins", :action => "destroy", :id => "1") }
+  it { expect(:put => "/pins/1/delete").to route_to(:controller => "pins", :action => "archive", :id => "1") }
 
 end

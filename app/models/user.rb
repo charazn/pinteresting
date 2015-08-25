@@ -27,4 +27,6 @@ class User < ActiveRecord::Base
   has_many :comments_received, :as => :commentable, :class_name => "Comment"
   has_many :comments_made, :class_name => "Comment", :foreign_key => :commenter_id
 
+  enum status: { archived: 0, active: 1 } 
+
 end

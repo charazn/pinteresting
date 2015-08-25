@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :users, except: :index
+  resources :users, except: :index do 
+    put :archive, :on => :member, :path => :delete
+  end
 
   # devise_for :users
   
