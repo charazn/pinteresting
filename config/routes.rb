@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :users, except: :index do 
+  resources :users do 
     put :deactivate, :on => :member, :path => :cancel
   end
 
