@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     # generates delete_pin_path, /pins/:id/archive, pins#archive
   
     member do 
-      put :favourite, :action => :upvote, :as => :upvote
-      put :unfavourite, :action => :undo_upvote, :as => :undo_upvote
+      put :favorite, :action => :upvote, :as => :upvote
+      put :unfavorite, :action => :undo_upvote, :as => :undo_upvote
       # put 'dislike' => 'pins#downvote'
       # put 'undislike' => 'pins#undo_downvote'
     end

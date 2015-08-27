@@ -43,12 +43,12 @@ class PinsController < ApplicationController
 
   def upvote
     @pin.liked_by(current_user)
-    redirect_to :back
+    redirect_back_or_to @pin
   end
 
   def undo_upvote
     @pin.unliked_by(current_user)
-    redirect_to :back
+    redirect_back_or_to @pin
   end
 
   # def downvote
