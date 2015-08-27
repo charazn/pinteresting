@@ -12,8 +12,10 @@ RSpec.describe UserSessionsController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       before { post :create, email: user.email, password: 'tinkerbox' }
-
-      it { expect(assigns(:user)).to eq(user) }
+      
+      # NOT NEEDED because the test is a behaviour test of login in a valid user 
+      # and redirecting to a protected page 
+      # it { expect(assigns(:user)).to eq(user) } 
       it { expect(response).to redirect_to(pins_path) }
     end
 
@@ -34,6 +36,13 @@ RSpec.describe UserSessionsController, type: :controller do
 
       it { expect(response).to render_template(:new) }
     end
+
+    context "with user status inactive" do
+      before { post :create, :user => attributes_for(:user, :inactive) }
+
+      it { expect(response).to render_template(:new) }
+    end
+
   end
 
   describe "DELETE #destroy" do

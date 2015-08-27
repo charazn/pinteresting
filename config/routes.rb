@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :users, except: :index do 
-    put :archive, :on => :member, :path => :cancel
+    put :deactivate, :on => :member, :path => :cancel
   end
 
   # devise_for :users

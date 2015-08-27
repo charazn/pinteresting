@@ -6,8 +6,9 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    if @user.active? && @user = login(params[:email], params[:password])
+    login(params[:email], params[:password])
+    # @user = User.find_by(email: params[:email])
+    if current_user && current_user.active?
       redirect_back_or_to pins_path, notice: 'You have logged in successfully'
     else
       flash.now[:alert] = 'Incorrect email or password. Please login again.'

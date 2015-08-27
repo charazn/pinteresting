@@ -7,6 +7,6 @@ RSpec.describe UsersController, type: :routing do
   it { expect(:post => "/users").to route_to(:controller => "users", :action => "create") }
   it { expect(:get => "/users/1/edit").to route_to(:controller => "users", :action => "edit", :id => "1") }
   it { expect(:patch => "/users/1").to route_to(:controller => "users", :action => "update", :id => "1") }
-  it { expect(:put => "/users/1/delete").to route_to(:controller => "users", :action => "archive", :id => "1") }
+  it { expect(:put => "/users/1/cancel").to route_to(:controller => "users", :action => "deactivate", :id => "1") }
 
 end

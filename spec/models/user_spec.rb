@@ -17,4 +17,7 @@ RSpec.describe User, type: :model do
 
   # enum :status not tested
 
+  it { should have_attached_file(:image) }
+  it { should validate_attachment_content_type(:image) }
+
 end

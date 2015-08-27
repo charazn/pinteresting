@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :archive]
+  before_action :set_user, only: [:show, :edit, :update, :deactivate]
 
   def show
   end
@@ -30,8 +30,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def archive
-    @user.archived!
+  def deactivate
+    @user.inactive!
     logout
     redirect_to root_path, notice: 'You have successfully cancelled your account'
   end

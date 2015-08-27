@@ -75,11 +75,11 @@ RSpec.describe PinsController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
-    before { delete :destroy, :id => pin.id }
+  # describe "DELETE #destroy" do
+  #   before { delete :destroy, :id => pin.id }
 
-    it { expect(assigns(:pin)).to be_destroyed }
-    it { is_expected.to redirect_to(pins_path) }
-  end
+  #   it { expect(assigns(:pin)).to be_destroyed }
+  #   it { is_expected.to redirect_to(pins_path) }
+  # end
 
 end

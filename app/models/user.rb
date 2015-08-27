@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :comments_received, :as => :commentable, :class_name => "Comment"
   has_many :comments_made, :class_name => "Comment", :foreign_key => :commenter_id
 
-  enum status: { archived: 0, active: 1 } 
+  enum status: { inactive: 0, active: 1 } 
 
   has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "100x100#", :profile_navbar => "30x30#" }, :default_url => "missing_:style.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
