@@ -21,6 +21,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug'

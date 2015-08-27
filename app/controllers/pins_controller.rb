@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
   skip_before_action :require_login, only: [:index, :show]
-  before_action :set_pin, only: [:show]
+  before_action :set_pin, only: [:show, :upvote, :undo_upvote]
   before_action :correct_user, only: [:edit, :update, :archive]
 
   def index
@@ -15,9 +15,6 @@ class PinsController < ApplicationController
     @pin = current_user.pins.build
   end
 
-  def edit
-  end
-
   def create
     @pin = current_user.pins.build(pin_params)
     if @pin.save
@@ -25,6 +22,9 @@ class PinsController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def edit
   end
 
   def update
@@ -40,6 +40,26 @@ class PinsController < ApplicationController
     @pin.archived!
     redirect_to pins_path, notice: 'Pin was successfully deleted'
   end
+
+  def upvote
+    @pin.liked_by(current_user)
+    redirect_to :back
+  end
+
+  def undo_upvote
+    @pin.unliked_by(current_user)
+    redirect_to :back
+  end
+
+  # def downvote
+  #   @pin.disliked_by(current_user)
+  #   redirect_to :back
+  # end
+
+  # def undo_downvote
+  #   @pin.undisliked_by(current_user)
+  #   redirect_to :back
+  # end
 
   # def destroy
   #   @pin.destroy

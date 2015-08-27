@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     put :deactivate, :on => :member, :path => :cancel
   end
 
-  # devise_for :users
+  # devise_for :users # Switched to Sorcery
   
   concern :paginatable do
     get '(page/:page)', :action => :index, :on => :collection, :as => ''
@@ -24,7 +24,15 @@ Rails.application.routes.draw do
     put :archive, :on => :member, :path => :delete
     # NOT put :archive, :on => :member, :as => :delete
     # generates delete_pin_path, /pins/:id/archive, pins#archive
-    resources :comments, only: [:new, :create, :edit, :update]
+  
+    member do 
+      put :favourite, :action => :upvote, :as => :upvote
+      put :unfavourite, :action => :undo_upvote, :as => :undo_upvote
+      # put 'dislike' => 'pins#downvote'
+      # put 'undislike' => 'pins#undo_downvote'
+    end
+  
+    resources :comments, :only => [:new, :create, :edit, :update]
   end
 
 end

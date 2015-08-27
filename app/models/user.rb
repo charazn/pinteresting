@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   #        :recoverable, :rememberable, :trackable, :validatable
   authenticates_with_sorcery!
 
+  acts_as_voter
+
   validates :username, :email, presence: true
   validates :email, uniqueness: true
 

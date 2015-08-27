@@ -1,4 +1,5 @@
 class Pin < ActiveRecord::Base
+  acts_as_votable
 
   validates :caption, presence: true
   validates :image, :attachment_presence => true

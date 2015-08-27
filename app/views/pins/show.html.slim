@@ -2,10 +2,21 @@
   .box.panel.panel-default
     = image_tag @pin.image.url(:large)
     .panel-body
-      .caption = @pin.caption
+      .caption 
+        = @pin.caption
+        .pull-right
+          - if current_user.voted_for?(@pin)
+            = link_to undo_upvote_pin_path(@pin), method: :put do 
+              span class="glyphicon glyphicon-heart faved"
+              |  Unfav
+          - else
+            = link_to upvote_pin_path(@pin), method: :put do
+              span class="glyphicon glyphicon-heart not_faved"
+              |  Favorite
       div 
         | by 
-        = @pin.user.username if @pin.user 
+        = @pin.user.username if @pin.user     
+
       - if @pin.user == current_user && logged_in?
         = link_to edit_pin_path(@pin) do
           span class="glyphicon glyphicon-edit" aria-hidden="true"
@@ -17,6 +28,10 @@
         span class="glyphicon glyphicon-comment" aria-hidden="true"
         span class="glyphicons glyphicons-quote" aria-hidden="true"
         |  Make a new comment
+      .pull-right
+        - if @pin.get_upvotes.any?
+          | Favorited 
+          = pluralize(@pin.get_upvotes.size, 'time')
 
   - if @pin.comments.any?
     .box.panel.panel-default
