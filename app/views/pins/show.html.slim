@@ -5,14 +5,15 @@
       .caption 
         = @pin.caption
         .pull-right
-          - if current_user.voted_for?(@pin)
-            = link_to undo_upvote_pin_path(@pin), method: :put do 
-              span class="glyphicon glyphicon-heart faved"
-              |  Unfav
-          - else
-            = link_to upvote_pin_path(@pin), method: :put do
-              span class="glyphicon glyphicon-heart not_faved"
-              |  Favorite
+          - if current_user
+            - if current_user.voted_for?(@pin)
+              = link_to undo_upvote_pin_path(@pin), method: :put do 
+                span class="glyphicon glyphicon-heart faved"
+                |  Unfav
+            - else
+              = link_to upvote_pin_path(@pin), method: :put do
+                span class="glyphicon glyphicon-heart not_faved"
+                |  Favorite
       div 
         | by 
         = @pin.user.username if @pin.user     
